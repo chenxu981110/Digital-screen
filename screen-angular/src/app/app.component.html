@@ -1,0 +1,323 @@
+<html>
+<!--标题及标题背景图-->
+<img id="title-img" src="../../assets/image/9.png" />
+<h1 id="title">国能集团[活性炭分公司]</h1>
+
+<!--天气-->
+<iframe id="weather" width="280" scrolling="no" height="60" frameborder="0" allowtransparency="true"
+    src="https://i.tianqi.com?c=code&id=38&color=%23FFFFFF&icon=1&num=1&site=12"></iframe>
+
+<!--间隔线-->
+<div style="position: absolute;right: 220px; top:2px ; width: 2px;height: 55px; background-image: linear-gradient( rgba(0, 0, 0, 0) 0%,
+                  rgba(0, 0, 0, 0) 10%,
+                  rgba(255, 255, 255, 0.3) 20%,
+                  rgba(255, 255, 255, 0.5) 30%,
+                  rgba(255, 255, 255, 0.534) 40%,
+                  rgba(255, 255, 255, 0.78) 50%,
+                  rgba(255, 255, 255, 0.534) 60%,
+                  rgba(255, 255, 255, 0.5) 70%,
+                  rgba(255, 255, 255, 0.3) 80%,
+                  rgba(0, 0, 0, 0) 90%,
+                  rgba(0, 0, 0, 0) 100%);z-index: 1;">
+</div>
+<!--时间-->
+<div id="time">
+    <!--时钟-->
+    <div id="show_time">{{time}}</div>
+    <div id="right8">
+        <!--星期-->
+        <div id="show_day">{{week}}</div>
+        <!--日期-->
+        <div id="show_date">{{date}}</div>
+    </div>
+
+</div>
+
+
+<!--左侧图表第一行-->
+<div id="main">
+    <div class="table1">
+        <div class="tab1 tab1-border1"></div>
+        <div class="tab1 tab1-border2"></div>
+        <div class="tab1 tab1-border3"></div>
+        <div class="tab1 tab1-border4"></div>
+        <div echarts [options]="option1" [merge]="updateOption1" id="chart1" style="width: 320px;height:198px;">
+        </div>
+    </div>
+    <!--图表2-->
+    <div class="table2">
+        <div class="tab2 tab2-border1"></div>
+        <div class="tab2 tab2-border2"></div>
+        <div class="tab2 tab2-border3"></div>
+        <div class="tab2 tab2-border4"></div>
+        <div echarts [options]="option2" [merge]="updateOption2" id="chart2" style="width: 320px;height:198px;">
+        </div>
+    </div>
+
+</div>
+<!--左侧图表第二行-->
+<div id="main">
+    <!--图表3-->
+    <div class="table3">
+        <div class="tab3 tab3-border1"></div>
+        <div class="tab3 tab3-border2"></div>
+        <div class="tab3 tab3-border3"></div>
+        <div class="tab3 tab3-border4"></div>
+        <div echarts [options]="option3" [merge]="updateOption3" id="chart3" style="width: 320px;height:198px;">
+        </div>
+    </div>
+
+    <!--图表4-->
+    <div class="table4">
+        <div class="tab4 tab4-border1"></div>
+        <div class="tab4 tab4-border2"></div>
+        <div class="tab4 tab4-border3"></div>
+        <div class="tab4 tab4-border4"></div>
+        <div echarts [options]="option4" [merge]="updateOption4" id="chart4" style="width: 320px;height:198px;">
+        </div>
+    </div>
+</div>
+<!--左侧图表5-->
+<div class="table5">
+    <div class="tab5 tab5-border1"></div>
+    <div class="tab5 tab5-border2"></div>
+    <div class="tab5 tab5-border3"></div>
+    <div class="tab5 tab5-border4"></div>
+    <div echarts [options]="option5" [merge]="updateOption5" id="chart5" style="width: 658px;height:214px;"></div>
+</div>
+
+<!--右侧饼图-->
+<!--垂直布局-->
+<div class="table6">
+    <div class="tab6 tab6-border1"></div>
+    <div class="tab6 tab6-border2"></div>
+    <div class="tab6 tab6-border3"></div>
+    <div class="tab6 tab6-border4"></div>
+    <div id="right">
+        <!--横向布局-党政工团-->
+        <div id="right1">
+            <div id="circle1"></div>
+            <label id="rig-text1" style="color: white;font-size: 16px;">党政工团</label>
+        </div>
+        <!--横向布局-党员活动占比-->
+        <div id="right2">
+            <label style="color: white;font-size: 12px;margin-right: 30px;">党员活动占比</label>
+            <div id="right3">
+                <div id="right4">
+                    <div id="circle2"></div>
+                    <label style="color: white;font-size: 12px;margin-bottom: 8px;">支部委员大会</label>
+                </div>
+                <div id="right4">
+                    <div id="circle3"></div>
+                    <label style="color: white;font-size: 12px;margin-bottom: 8px;">党小组会</label>
+                </div>
+                <div id="right4">
+                    <div id="circle4"></div>
+                    <label style="color: white;font-size: 12px;margin-bottom: 8px;">组织生活会</label>
+                </div>
+                <div id="right4">
+                    <div id="circle5"></div>
+                    <label style="color: white;font-size: 12px;margin-bottom: 8px;">民生评议党员会</label>
+                </div>
+            </div>
+        </div>
+        <!--饼图标注-->
+        <div id="right6">
+            <div id="right5">
+                <div id="circle6"></div>
+                <div
+                    style="position: absolute;left: 60px; bottom:80px ; width: 2px;height: 85px; background: #0c75eb;z-index: 1;">
+                </div>
+            </div>
+            <label
+                style="color: white;font-size: 18px;font-weight: bold;position: absolute;left: 11.5px;bottom: 165px;z-index: 2;">26%</label>
+        </div>
+        <!--饼图标注-->
+        <div id="right6">
+            <div id="right5">
+                <div id="circle7"></div>
+                <div
+                    style="position: absolute;left: 120px; bottom:60px ; width: 2px;height: 35px; background: #0cf5b3;z-index: 1;">
+                </div>
+            </div>
+            <label
+                style="color: white;font-size: 18px;font-weight: bold;position: absolute;left: 71.5px;bottom: 95px;z-index: 2;">22%</label>
+        </div>
+        <!--饼图标注-->
+        <div id="right6">
+            <div id="right5">
+                <div id="circle8"></div>
+                <div
+                    style="position: absolute;left: 160px; bottom:70px ; width: 2px;height: 45px; background: #f7931e;z-index: 1;">
+                </div>
+            </div>
+            <label
+                style="color: white;font-size: 18px;font-weight: bold;position: absolute;left: 173.5px;bottom: 115px;z-index: 2;">6%</label>
+        </div>
+        <!--饼图标注-->
+        <div id="right6">
+            <div id="right5">
+                <div id="circle9"></div>
+                <div
+                    style="position: absolute;left: 130px; bottom:100px ; width: 2px;height: 55px; background: #00dfdf;z-index: 1;">
+                </div>
+            </div>
+            <label
+                style="color: white;font-size: 18px;font-weight: bold;  position: absolute;left: 143.5px;bottom: 155px;z-index: 2;">46%</label>
+        </div>
+        <!--饼图-->
+        <img src="../../assets/image/11.png" style="width: 200px;position:absolute;bottom: 20px;left: 20px;" />
+    </div>
+</div>
+
+<!--视屏-->
+<div class="table7">
+    <div class="tab7 tab7-border1"></div>
+    <div class="tab7 tab7-border2"></div>
+    <div class="tab7 tab7-border3"></div>
+    <div class="tab7 tab7-border4"></div>
+    <div class="video">
+        <video width="405" height="340" controls loop autoplay #videoPlayer>
+            <source src="../assets/image/12.mp4" type="video/mp4" />
+        </video>
+    </div>
+</div>
+<!--表格-->
+<div class="table8">
+    <div class="tab8 tab8-border1"></div>
+    <div class="tab8 tab8-border2"></div>
+    <div class="tab8 tab8-border3"></div>
+    <div class="tab8 tab8-border4"></div>
+    <div id="right7">
+        <div id="circle10"></div>
+        <label id="caption">活性炭厂报警信息</label>
+    </div>
+    <table>
+
+        <!--标题-->
+        <thead>
+            <tr>
+                <th>告警等级</th>
+                <th>告警时间</th>
+                <th>设备名称</th>
+                <th>告警内容</th>
+                <th>地理位置</th>
+                <th>处理状态</th>
+                <th>运维部门</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!--表格行1-->
+            <tr>
+                <td style="color: red;">I级</td>
+                <td>2020-11-09 12:16:27</td>
+                <td>活化炉</td>
+                <td>活化炉温度过高</td>
+                <td>新疆活化炉地区</td>
+                <td style="color: red;">未确认</td>
+                <td>新疆运维一部</td>
+            </tr>
+            <!--表格行2-->
+            <tr class="tr1">
+                <td style="color: #f7931e;">II级</td>
+                <td>2020-11-09 2:6:49</td>
+                <td>无烟炭化炉</td>
+                <td>无烟炭化炉温度过高</td>
+                <td>新疆活化炉地区</td>
+                <td style="color: red;">未确认</td>
+                <td>新疆运维一部</td>
+            </tr>
+            <!--表格行3-->
+            <tr>
+                <td style="color: #00dfdf;">III级</td>
+                <td>2020-11-09 2:6:49</td>
+                <td>活化炉</td>
+                <td>活化炉温度过高</td>
+                <td>新疆活化炉地区</td>
+                <td style="color: #00dfdf;">已确认</td>
+                <td>新疆运维三部</td>
+            </tr>
+            <!--表格行4-->
+            <tr class="tr1">
+                <td style="color: #00dfdf;">III级</td>
+                <td>2020-11-09 2:6:49</td>
+                <td>活化炉</td>
+                <td>活化炉温度过高</td>
+                <td>新疆活化炉地区</td>
+                <td style="color: #f7931e;">处理中</td>
+                <td>新疆运维一部</td>
+            </tr>
+            <!--表格行5-->
+            <tr>
+                <td style="color: #00dfdf;">III级</td>
+                <td>2020-11-09 2:6:49</td>
+                <td>活化炉</td>
+                <td>活化炉温度过高</td>
+                <td>新疆活化炉地区</td>
+                <td style="color: red;">未确认</td>
+                <td>新疆运维一部</td>
+            </tr>
+            <!--表格行6-->
+            <tr class="tr1">
+                <td style="color: #00dfdf;">III级</td>
+                <td>2020-11-09 2:6:49</td>
+                <td>活化炉</td>
+                <td>活化炉温度过高</td>
+                <td>新疆活化炉地区</td>
+                <td style="color: #00dfdf;">已确认</td>
+                <td>新疆运维一部</td>
+            </tr>
+            <!--表格行7-->
+            <tr>
+                <td style="color: #00dfdf;">III级</td>
+                <td>2020-11-09 2:6:49</td>
+                <td>活化炉</td>
+                <td>活化炉温度过高</td>
+                <td>新疆活化炉地区</td>
+                <td style="color: #00dfdf;">已确认</td>
+                <td>新疆运维一部</td>
+            </tr>
+        </tbody>
+
+    </table>
+</div>
+
+<!--底部人员信息-->
+<footer>
+    <div id="foot">
+        <div id="bottom1-text">
+            <div class="bot1 bot1-border1"></div>
+            <div class="bot1 bot1-border2"></div>
+            <div class="bot1 bot1-border3"></div>
+            <div class="bot1 bot1-border4"></div>
+            <label id="bot1-text1">安全生产天数</label>
+            <div id="bot1-text2" style="background: rgba(3, 0, 28, 0.05);border: none;outline: none;"
+                contenteditable="true">{{days}}</div>
+            <label id="bot1-text1">天</label>
+        </div>
+
+        <div id="bottom2-text">
+            <div class="bot2 bot2-border1"></div>
+            <div class="bot2 bot2-border2"></div>
+            <div class="bot2 bot2-border3"></div>
+            <div class="bot2 bot2-border4"></div>
+            <div id="row1">
+                <div id="circle"></div>
+                <label id="bot2-text1">当天值班人员</label>
+            </div>
+            <div id="row1">
+                <label id="bot2-text2">当值领导<span id="bot2-text3">张三</span></label>
+                <label id="bot2-text2">副值班<span id="bot2-text3">李四</span></label>
+                <label id="bot2-text2">值班员<span id="bot2-text3">小明</span></label>
+            </div>
+        </div>
+    </div>
+
+
+
+
+</footer>
+
+
+</html>
+<router-outlet></router-outlet>
